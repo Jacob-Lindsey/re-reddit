@@ -8,6 +8,7 @@ export const Wrapper = styled.header`
     justify-content: space-between;
     position: relative;
     width: 100%;
+    z-index: 99;
     
     @media (max-width: 768px) {
         flex-direction: column;
@@ -26,6 +27,7 @@ export const HeaderLeft = styled.div`
 `;
 
 export const HeaderImg = styled.a`
+    cursor: pointer;
     font-family: 'Varela Round', sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
@@ -60,9 +62,15 @@ export const Separator = styled.span`
 `;
 
 export const Inbox = styled.a`
-    color: rgb(140,179,217);
+    background-image: url('https://www.redditstatic.com/sprite-reddit.5kxTB7FXse0.png');
+    background-repeat: no-repeat;
     cursor: pointer;
+    display: inline-block;
     font-family: arial;
+    height: 10px;
+    line-height: 12px;
+    position: relative;
+    width: 15px;
 `;
 
 export const Preferences = styled.a`

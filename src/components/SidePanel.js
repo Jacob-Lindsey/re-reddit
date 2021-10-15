@@ -1,0 +1,69 @@
+import styled from "styled-components";
+
+const SidePanel = () => {
+
+    return (
+        <Wrapper>
+            <Search placeholder='search'></Search>
+            <Submit>Submit a new link</Submit>
+            <Submit>Submit a new text post</Submit>
+            <PremiumPanel></PremiumPanel>
+            <CreatePanel><p>Create your own re-sub</p></CreatePanel>
+        </Wrapper>
+    )
+}
+
+export default SidePanel;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 430px;
+    position: absolute;
+    right: 25px;
+    top: 90px;
+    width: 300px;
+`;
+
+const Search = styled.input`
+    background-color: rgb(51, 51, 51);
+    border: 1px solid rgb(128, 128, 128);
+    height: 8%;
+    padding-left: 10px;
+    &::-webkit-input-placeholder {
+        color: rgb(118, 118, 118);
+    }
+
+`;
+
+const Submit = styled.button`
+    background-color: rgb(68, 68, 68);
+    border-style: none;
+    color: rgb(140, 179, 217);
+    font-size: 0.85rem;
+    font-weight: 600;
+    height: 8%;
+`;
+
+const PremiumPanel = styled.div`
+    background-color: rgb(28, 42, 56);
+    border: 1px solid #ccc;
+    height: 35%;
+`;
+
+const CreatePanel = styled.div`
+    background-color: rgb(57, 57, 57);
+    border-top: 30px solid rgb(68, 68, 68);
+    height: 20%;
+    & > p {
+        color: rgb(140, 179, 217);
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        position: absolute;
+        text-align: center;
+        top: 325px;
+        width: 100%;
+    }
+`;
+

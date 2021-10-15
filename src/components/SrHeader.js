@@ -1,35 +1,36 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const SrHeader = () => {
 
-
+    const [active, setActive] = useState(2);
 
     return (
         <Wrapper>
             <ul>
-                <li><a href='/'>MY SUBREDDITS</a></li>
+                <li><LinkItem selected={active === 0 ? true : false} onClick={() => setActive(0)}>MY SUBREDDITS</LinkItem></li>
                 -
-                <li><a href='/'>DASHBOARD</a></li>
+                <li><LinkItem selected={active === 1 ? true : false} onClick={() => setActive(1)}>DASHBOARD</LinkItem></li>
                 -
-                <li><a href='/'>HOME</a></li>
+                <li><LinkItem selected={active === 2 ? true : false} onClick={() => setActive(2)}>HOME</LinkItem></li>
                 -
-                <li><a href='/'>POPULAR</a></li>
+                <li><LinkItem selected={active === 3 ? true : false} onClick={() => setActive(3)}>POPULAR</LinkItem></li>
                 -
-                <li><a href='/'>ALL</a></li>
+                <li><LinkItem selected={active === 4 ? true : false} onClick={() => setActive(4)}>ALL</LinkItem></li>
                 -
-                <li><a href='/'>RANDOM</a></li>
+                <li><LinkItem selected={active === 5 ? true : false} onClick={() => setActive(5)}>RANDOM</LinkItem></li>
                 -
-                <li><a href='/'>USERS</a></li>
+                <li><LinkItem selected={active === 6 ? true : false} onClick={() => setActive(6)}>USERS</LinkItem></li>
                 -
-                <li><a href='/'>FRIENDS</a></li>
+                <li><LinkItem selected={active === 7 ? true : false} onClick={() => setActive(7)}>FRIENDS</LinkItem></li>
                 -
-                <li><a href='/'>MOD</a></li>
+                <li><LinkItem selected={active === 8 ? true : false} onClick={() => setActive(8)}>MOD</LinkItem></li>
                 -
-                <li><a href='/'>MODQUEUE</a></li>
+                <li><LinkItem selected={active === 9 ? true : false} onClick={() => setActive(9)}>MODQUEUE</LinkItem></li>
                 -
-                <li><a href='/'>SAVED</a></li>
+                <li><LinkItem selected={active === 10 ? true : false} onClick={() => setActive(10)}>SAVED</LinkItem></li>
                 -
-                <li><a href='/'>EDIT</a></li>
+                <li><LinkItem selected={active === 11 ? true : false} onClick={() => setActive(11)}>EDIT</LinkItem></li>
             </ul>
         </Wrapper>
     )
@@ -40,11 +41,12 @@ export default SrHeader;
 const Wrapper = styled.header`
     background-color: rgb(204,204,204);
     height: 30%;
-    padding-left: 6px;
+    padding: 3px 0px 0px 6px;
     position: absolute;
     top: 0;
     width: 100%;
     & > ul {
+        cursor: default;
         display: flex;
         font-size: 0.57rem;
         font-weight: 400;
@@ -52,12 +54,20 @@ const Wrapper = styled.header`
         justify-content: flex-start;
         line-height: 1.2rem;
     }
-    & > ul > li > a {
-        color: #222;
+    & > ul > li > span {
+        cursor: pointer;
+        font-size: 0.64rem;
         text-decoration: none;
+        transform: scale(0.9,0.8);
     }
 
     @media (max-width: 768px) {
         display: none;
     }
+`;
+
+const LinkItem = styled.span`
+    color: ${({ selected }) => selected ? 'rgb(210, 90, 50)' : 'rgb(0, 0, 0)'};
+    display: inline-block;
+    font-family: 'Roboto';
 `;

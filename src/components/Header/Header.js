@@ -27,7 +27,7 @@ const Header = () => {
 
                     <User />
                     <Separator>|</Separator>
-                    <Inbox>XXX</Inbox>
+                    <Inbox></Inbox>
                     <Separator>|</Separator>
                     <Preferences>preference</Preferences>
                     <Separator>|</Separator>

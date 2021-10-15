@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import getScreenSize from "../utils/getScreenSize";
+import SidePanel from "./SidePanel";
 
 const Content = () => {
 
@@ -15,7 +16,7 @@ const Content = () => {
         flair: "MEME",
         image: null
     }
-    
+
     return (
         <>
         {screenWidth > 768 ?
@@ -30,7 +31,7 @@ const Content = () => {
                         {sampleData.title}
                         <FlairDesktop>{sampleData.flair}</FlairDesktop>
                     </>
-                    <SubDetails>submitted {sampleData.timePosted} ago by&nbsp; {sampleData.postedBy} &nbsp;to r/{sampleData.subreddit}</SubDetails>
+                    <SubDetails>submitted {sampleData.timePosted} ago by&nbsp; <Author>{sampleData.postedBy}</Author> &nbsp;to <Location>r/{sampleData.subreddit}</Location></SubDetails>
                     <SubDetails>
                         <span>
                             <span>{sampleData.commentCount} comments</span> 
@@ -45,7 +46,9 @@ const Content = () => {
                     </SubDetails>
                 </Details>
                 <Image></Image>
+                <SidePanel />
             </Wrapper>
+            
 
         :
 
@@ -95,7 +98,7 @@ const Karma = styled.div`
     color: rgb(84,84,84);
     font-weight: 600;
     & > span {
-        cursor: pointer;
+        cursor: pointer; 
     }
     & > span:first-child:hover {
         color: rgba(0,220,0,0.7);
@@ -123,29 +126,37 @@ const Karma = styled.div`
 
 const Details = styled.div`
     color: #eee;
-    min-width: 50%;
+    cursor: pointer;
     order: 3;
+    padding: 6px 0px 0px 4px;
     text-align: left;
+    width: 75%;
+    &:hover {
+        background-color: rgb(55, 55, 55); 
+    }
 
     @media (max-width: 768px) {
         color: #fff;
         font-size: 0.9rem;
         margin: 6px 0px 0px 8px;
         order: 2;
+        padding: 8px 0px 6px 4px;
         text-align: left;
     }
 `;
 
 const SubDetails = styled.div`
     color: #888;
+    cursor: pointer;
     font-size: 0.65rem;
+    margin: 4px 0px 0px 0px;
     text-align: left;
     
     & > span > span {
         cursor: pointer;
         font-size: 0.73rem;
         font-weight: 600;
-        margin-right: 8px;
+        margin: 0px 8px 0px 0px;
         &:hover {
             text-decoration: underline;
         }
@@ -157,11 +168,25 @@ const SubDetails = styled.div`
         font-weight: 300;
         margin-top: 2px;
     }
-    
+`;
+
+const Author = styled.span`
+    color: rgb(106, 152, 175);
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+
+const Location = styled.span`
+    color: rgb(106, 152, 175);
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 const FlairDesktop = styled.span`
     background-color: rgb(58,58,58);
+    cursor: pointer;
     display: inline;
     font-size: 0.75rem;
     margin-left: 10px;
@@ -187,6 +212,7 @@ const FlairMobile = styled.span`
 const Image = styled.div`
     background-color: #777;
     border-radius: 50%;
+    cursor: pointer;
     height: 3.6rem;
     margin: 0px 10px;
     order: 2;
