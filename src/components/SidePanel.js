@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 const Search = styled.input`
     background-color: rgb(51, 51, 51);
     border: 1px solid rgb(128, 128, 128);
+    color: #eee;
     height: 8%;
     padding-left: 10px;
     &::-webkit-input-placeholder {
@@ -41,20 +42,27 @@ const Submit = styled.button`
     background-color: rgb(68, 68, 68);
     border-style: none;
     color: rgb(140, 179, 217);
+    cursor: pointer;
     font-size: 0.85rem;
     font-weight: 600;
     height: 8%;
+    &:hover {
+        background-color: rgb(51, 51, 51);
+        color: rgb(20, 150, 220);
+    }
 `;
 
 const PremiumPanel = styled.div`
     background-color: rgb(28, 42, 56);
     border: 1px solid #ccc;
+    cursor: pointer;
     height: 35%;
 `;
 
 const CreatePanel = styled.div`
     background-color: rgb(57, 57, 57);
     border-top: 30px solid rgb(68, 68, 68);
+    cursor: pointer;
     height: 20%;
     & > p {
         color: rgb(140, 179, 217);

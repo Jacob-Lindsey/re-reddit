@@ -11,6 +11,7 @@ const MobileHeader = (props) => {
     const dropdownRef = useRef(null);
 
     useEffect(() => {
+        
         const toggleOpen = (e) => {
             if (dropdownRef && dropdownRef.current && e.target !== dropdownRef.current && open) {
                 setOpen(!open);
@@ -21,16 +22,14 @@ const MobileHeader = (props) => {
     });
 
     useEffect(() => {
-        let oldScroll;
-
-        const handleScroll = () => {
-            if (oldScroll > window.scrollY && !open) {
+        function handleScroll() {
+            if (headerRef.current > window.scrollY && !open) {
                 setScrollingUp(false);
             }
-            if (oldScroll < window.scrollY && !open) {
+            if (headerRef.current < window.scrollY && !open) {
                 setScrollingUp(true);
             }
-            oldScroll = window.scrollY;
+            headerRef.current = window.scrollY;
         }
 
         window.addEventListener('scroll', handleScroll);
@@ -39,10 +38,10 @@ const MobileHeader = (props) => {
 
     const handleClick = (e) => {
         e.stopPropagation();
-    }
+    };
 
     return (
-        <Container ref={headerRef} scrolling={scrollingUp}>
+        <Container scrolling={scrollingUp}>
             <Wrapper>
                 <Dropdown open={open} onClick={() => setOpen(!open)}>Front Page &nbsp;&nbsp;&#9660;</Dropdown>
                 <Subscriptions ref={dropdownRef} open={open}>

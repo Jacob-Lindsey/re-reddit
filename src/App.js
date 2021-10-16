@@ -1,7 +1,8 @@
 import './App.css';
+import Routes from './Routes';
 import Global from './styles/global';
 import Header from './components/Header/Header';
-import Content from './components/Content';
+import Posts from './components/Posts';
 
 function App() {
   return (
@@ -9,34 +10,7 @@ function App() {
       <Global />
       <Header />
       <div className="content-container">
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
+        <Routes />
       </div>
     </div>
   );

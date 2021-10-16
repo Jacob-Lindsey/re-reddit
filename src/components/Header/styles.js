@@ -62,15 +62,14 @@ export const Separator = styled.span`
 `;
 
 export const Inbox = styled.a`
-    background-image: url('https://www.redditstatic.com/sprite-reddit.5kxTB7FXse0.png');
+    background-image: url(${(props) => props.img});
+    background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
     display: inline-block;
     font-family: arial;
-    height: 10px;
-    line-height: 12px;
     position: relative;
-    width: 15px;
+    width: 20px;
 `;
 
 export const Preferences = styled.a`

@@ -2,20 +2,9 @@ import styled from "styled-components";
 import getScreenSize from "../utils/getScreenSize";
 import SidePanel from "./SidePanel";
 
-const Content = () => {
+const Content = (props) => {
 
     const screenWidth = getScreenSize().width;
-
-    const sampleData = {
-        title: "Not sure what you'd call this in basketball terms",
-        subreddit: "RocketLeague",
-        postedBy: "unintelligentlysmart",
-        timePosted: "15 hours ago",
-        commentCount: "354",
-        karma: "5619",
-        flair: "MEME",
-        image: null
-    }
 
     return (
         <>
@@ -23,18 +12,18 @@ const Content = () => {
             <Wrapper>
                 <Karma>
                     <span>&#129959;</span>
-                    <div>{sampleData.karma}</div>
+                    <div>{props.postData.karma}</div>
                     <span>&#129958;</span>
                 </Karma>
                 <Details>
                     <>
-                        {sampleData.title}
-                        <FlairDesktop>{sampleData.flair}</FlairDesktop>
+                        {props.postData.title}
+                        <FlairDesktop>{props.postData.flair}</FlairDesktop>
                     </>
-                    <SubDetails>submitted {sampleData.timePosted} ago by&nbsp; <Author>{sampleData.postedBy}</Author> &nbsp;to <Location>r/{sampleData.subreddit}</Location></SubDetails>
+                    <SubDetails>submitted {props.postData.timePosted} ago by&nbsp; <Author>{props.postData.postedBy}</Author> &nbsp;to <Location>r/{props.postData.subreddit}</Location></SubDetails>
                     <SubDetails>
                         <span>
-                            <span>{sampleData.commentCount} comments</span> 
+                            <span>{props.postData.commentCount} comments</span> 
                             <span>source</span>
                             <span>share</span>
                             <span>save</span>
@@ -55,17 +44,17 @@ const Content = () => {
             <Wrapper>
                 <Karma>
                     <span>&#129959;</span>
-                    <div>{sampleData.karma}</div>
+                    <div>{props.postData.karma}</div>
                     <span>&#129958;</span>
                 </Karma>
                 <Details>
                     <>
-                        <FlairMobile>{sampleData.flair}</FlairMobile>
-                        {sampleData.title}
+                        <FlairMobile>{props.postData.flair}</FlairMobile>
+                        {props.postData.title}
                     </>
-                    <SubDetails>to r/{sampleData.subreddit} by {sampleData.postedBy}</SubDetails>
-                    <SubDetails>{sampleData.timePosted}</SubDetails>
-                    <SubDetails>{sampleData.commentCount} comments</SubDetails>
+                    <SubDetails>to r/{props.postData.subreddit} by {props.postData.postedBy}</SubDetails>
+                    <SubDetails>{props.postData.timePosted}</SubDetails>
+                    <SubDetails>{props.postData.commentCount} comments</SubDetails>
                 </Details>
                 <Image></Image>
             </Wrapper>
@@ -87,6 +76,7 @@ const Wrapper = styled.div`
         border-bottom: 1px solid rgba(158,158,158,0.25);
         display: flex;
         justify-content: center;
+        margin: 0;
         padding: 0px 20px 0px 8px;
         & > span {
             font-size: 0.7rem;

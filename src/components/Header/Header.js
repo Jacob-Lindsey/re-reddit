@@ -5,10 +5,12 @@ import MobileHeader from "../MobileHeader/MobileHeader";
 import SrHeader from "../SrHeader";
 import TabMenu from "./TabMenu/TabMenu";
 import User from "./User/User";
+import inboxEmpty from "../../images/inbox-empty.png";
+import inboxActive from "../../images/inbox-active.png";
 
 const Header = () => {
 
-
+    const [isInboxActive, setIsInboxActive] = useState(false);
 
     return (
         <>
@@ -27,7 +29,7 @@ const Header = () => {
 
                     <User />
                     <Separator>|</Separator>
-                    <Inbox></Inbox>
+                    <Inbox img={isInboxActive ? inboxActive : inboxEmpty}></Inbox>
                     <Separator>|</Separator>
                     <Preferences>preference</Preferences>
                     <Separator>|</Separator>
